@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Mi App de Organización</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+ <div class="bienvenida">
+  <h2>¡Bienvenido Victor!</h2>
+  <h3>¿Preparado para hoy? Vamos con todo!</h3>
+  <p id="frase-motivacional">Aquí aparecerá una frase motivacional.</p>
+  <button id="btn-frase" class="frase-btn">Mostrar otra frase</button>
+</div>
+
+
+  <!-- Botón hamburguesa -->
+<button class="menu-toggle" onclick="toggleSidebar()">☰</button>
+
+<!-- Sidebar -->
+<div class="sidebar" id="sidebar">
+  <a href="index.html">🏠 Inicio</a>
+  <a href="tareas.html">📋 Tareas</a>
+  <a href="trading.html">📊 Trading</a>
+  <a href="progreso.html">💪 Progreso</a>
+  <a href="emociones.html">🧠 Emociones</a>
+  <a href="estudios.html">💻 Estudios</a></div>
+
+  <div class="animated-bg"></div>
+  <script src="frases.js"></script>
+  <script src="main.js"></script>
+</body>
+</html>

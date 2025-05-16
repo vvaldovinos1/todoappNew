@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <link rel="stylesheet" href="rain-background.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Emociones</title>
+  <style>
+    body {
+      background-color: #000;
+      color: #ddd;
+      font-family: Arial, sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 20px;
+      min-height: 100vh;
+    }
+    h1 {
+      margin-bottom: 20px;
+      text-align: center;
+    }
+    .checkboxes {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-bottom: 30px;
+      width: 90vw;
+      max-width: 400px;
+    }
+    /* Checkbox Styles */
+    .checkbox-btn {
+      display: block;
+      position: relative;
+      padding-left: 35px;
+      margin-bottom: 15px;
+      cursor: pointer;
+      user-select: none;
+      font-size: 16px;
+      width: 100%;
+      color: #ddd;
+    }
+    .checkbox-btn input {
+      position: absolute;
+      opacity: 0;
+      cursor: pointer;
+      height: 0;
+      width: 0;
+    }
+    .checkbox-btn label {
+      cursor: pointer;
+    }
+    .checkmark {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 25px;
+      width: 25px;
+      border: 2.5px solid #ffffff;
+      transition: .2s linear;
+      border-radius: 4px;
+      box-sizing: border-box;
+    }
+    .checkbox-btn input:checked ~ .checkmark {
+      background-color: transparent;
+      border: none;
+      transform: rotate(45deg);
+    }
+    .checkmark:after {
+      content: "";
+      position: absolute;
+      visibility: hidden;
+      opacity: 0;
+      left: 50%;
+      top: 40%;
+      width: 10px;
+      height: 14px;
+      border: 2px solid #0ea021;
+      filter: drop-shadow(0px 0px 10px #0ea021);
+      border-width: 0 2.5px 2.5px 0;
+      transition: .2s linear;
+      transform: translate(-50%, -50%) rotate(-90deg) scale(0.2);
+    }
+    .checkbox-btn input:checked ~ .checkmark:after {
+      visibility: visible;
+      opacity: 1;
+      transform: translate(-50%, -50%) rotate(0deg) scale(1);
+      animation: pulse 1s ease-in;
+    }
+    @keyframes pulse {
+      0%, 100% {
+        transform: translate(-50%, -50%) rotate(0deg) scale(1);
+      }
+      50% {
+        transform: translate(-50%, -50%) rotate(0deg) scale(1.6);
+      }
+    }
+
+    /* Bitácora */
+    textarea {
+      width: 90vw;
+      max-width: 600px;
+      height: 150px;
+      background: #111;
+      border: 2px solid #0ea021;
+      color: #ddd;
+      padding: 10px;
+      font-size: 16px;
+      border-radius: 8px;
+      resize: vertical;
+      margin-bottom: 10px;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    button {
+      background: #0ea021;
+      border: none;
+      padding: 10px 20px;
+      color: #000;
+      font-weight: bold;
+      border-radius: 8px;
+      cursor: pointer;
+      margin: 0 auto 30px auto;
+      display: block;
+      transition: background 0.3s ease;
+    }
+    button:hover {
+      background: #13c72c;
+    }
+    .entry {
+      background: #111;
+      border: 1.5px solid #0ea021;
+      border-radius: 8px;
+      padding: 10px;
+      margin-bottom: 12px;
+      width: 90vw;
+      max-width: 600px;
+      word-wrap: break-word;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .entry-header {
+      font-size: 0.9em;
+      color: #6f9a68;
+      margin-bottom: 6px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <button onclick="history.back()" class="btn2 btn-volver"><span>⬅ Volver</span></button>
+  <div class="container"></div>
+
+<div class="panel">
+
+
+  <h1>Emociones - Bitácora y Tareas Diarias</h1>
+
+  <div class="checkboxes">
+    <label class="checkbox-btn">Escribir sobre tus emociones
+      <input type="checkbox" />
+      <span class="checkmark"></span>
+    </label>
+    <label class="checkbox-btn">Respiración 4-4-6
+      <input type="checkbox" />
+      <span class="checkmark"></span>
+    </label>
+    <label class="checkbox-btn">Decir cosas positivas antes y después del trabajo
+      <input type="checkbox" />
+      <span class="checkmark"></span>
+    </label>
+  </div>
+
+  <textarea id="entrada" placeholder="Escribe aquí tus pensamientos y emociones..."></textarea>
+  <button id="guardarBtn">Guardar entrada</button>
+  <div id="listaEntradas"></div>
+
+</div>
+
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <link rel="stylesheet" href="rain-background.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Tareas</title>
+  <style>
+    body {
+      background: #000;
+      color: #ccc;
+      font-family: Arial, sans-serif;
+      min-height: 100vh;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+      text-align: center;
+    }
+    h1 {
+      color: white;
+      margin-bottom: 5px;
+    }
+    #fecha {
+      margin-bottom: 30px;
+      font-size: 18px;
+      color: #aaa;
+    }
+    .checkbox-btn {
+      display: block;
+      position: relative;
+      padding-left: 35px;
+      margin-bottom: 20px;
+      cursor: pointer;
+      user-select: none;
+      font-size: 18px;
+      color: #ccc;
+      max-width: 320px;
+      text-align: left;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .checkbox-btn input {
+      position: absolute;
+      opacity: 0;
+      cursor: pointer;
+      height: 0;
+      width: 0;
+    }
+    .checkmark {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 25px;
+      width: 25px;
+      border: 2.5px solid #ffffff;
+      transition: .2s linear;
+      border-radius: 4px;
+      box-sizing: border-box;
+    }
+    .checkbox-btn input:checked ~ .checkmark {
+      background-color: transparent;
+      border: none;
+      transform: rotate(45deg);
+    }
+    .checkmark:after {
+      content: "";
+      position: absolute;
+      visibility: hidden;
+      opacity: 0;
+      left: 50%;
+      top: 40%;
+      width: 10px;
+      height: 14px;
+      border: 2px solid #0ea021;
+      filter: drop-shadow(0px 0px 10px #0ea021);
+      border-width: 0 2.5px 2.5px 0;
+      transition: .2s linear;
+      transform: translate(-50%, -50%) rotate(-90deg) scale(0.2);
+      border-radius: 2px;
+    }
+    .checkbox-btn input:checked ~ .checkmark:after {
+      visibility: visible;
+      opacity: 1;
+      transform: translate(-50%, -50%) rotate(0deg) scale(1);
+      animation: pulse 1s ease-in;
+    }
+    @keyframes pulse {
+      0%, 100% {
+        transform: translate(-50%, -50%) rotate(0deg) scale(1);
+      }
+      50% {
+        transform: translate(-50%, -50%) rotate(0deg) scale(1.6);
+      }
+    }
+    textarea {
+      margin-top: 40px;
+      width: 320px;
+      height: 100px;
+      background: #111;
+      border: 2px solid #444;
+      border-radius: 6px;
+      color: #ccc;
+      font-size: 16px;
+      padding: 10px;
+      resize: none;
+      font-family: Arial, sans-serif;
+    }
+    button {
+      margin-top: 15px;
+      padding: 10px 20px;
+      font-size: 16px;
+      background-color: #0ea021;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      color: white;
+      transition: background-color 0.3s ease;
+    }
+    button:hover {
+      background-color: #0b7b17;
+    }
+    #bitacoraTitulo {
+      margin-top: 30px;
+      font-size: 20px;
+      color: #ffffff;
+    }
+  </style>
+</head>
+<body>
+  <button onclick="history.back()" class="btn2 btn-volver"><span>⬅ Volver</span></button>
+  <div class="container"></div>
+
+  <div class="panel">
+
+
+  <h1>Tareas Diarias</h1>
+  <div id="fecha"></div>
+  
+  <label class="checkbox-btn">
+    <input type="checkbox" />
+    <span class="checkmark"></span>
+    Cepillarme los dientes
+  </label>
+
+  <label class="checkbox-btn">
+    <input type="checkbox" />
+    <span class="checkmark"></span>
+    Cepillarme el cabello
+  </label>
+
+  <label class="checkbox-btn">
+    <input type="checkbox" />
+    <span class="checkmark"></span>
+    Leer 1 página de algún libro
+  </label>
+
+  <div id="bitacoraTitulo">Bitácora del día</div>
+  <textarea id="bitacora" placeholder="Escribe aquí tus comentarios o emociones del día..."></textarea>
+  <button id="guardarBtn">Guardar bitácora</button>
+
+  </div>
+
+  
+  <script src="tareas.js"></script>
+</body>
+</html>
